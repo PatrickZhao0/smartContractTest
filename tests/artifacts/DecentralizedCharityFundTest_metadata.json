@@ -1,0 +1,264 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "beforeAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "donate",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "donorVotingPower",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeRequest",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "fundingRequests",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "projectAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "requestedAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "projectDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votesReceived",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isFinalized",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getFundingHistory",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "projectAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "requestedAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "projectDescription",
+						"type": "string"
+					}
+				],
+				"name": "submitFundingRequest",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testDonate",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalDonations",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "voteOnRequest",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"testDonate()": {
+					"notice": "#sender: account-0 #value: 3000000000000000000"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/FanEngagementSystem_test.sol": "DecentralizedCharityFundTest"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/DecentralizedCharityFund.sol": {
+			"keccak256": "0x2a46d53e431301031dfd629925eab75cef737ba4f73f2b9a07e0daed0fb55251",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3b34796862d5b28e70d01d1440290fd640d8b9a0d36e86078b5de7687241d156",
+				"dweb:/ipfs/QmQ5L6RNsXx5LQAYZphSymCXeEa99UyYdhHZdnVvZX1hC1"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0xf2560b5386574153057104d19a9e68a32ee912cf23c0c8df1fe9a0607f42d543",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a63166e036b040826baa513772451a79925daa304b38749100efb089ac07cdc2",
+				"dweb:/ipfs/QmUtMTxUFKU6a5oFXsEJnTPvb3QPb7GDDmSv5yZ1jFHDwR"
+			]
+		},
+		"remix_accounts.sol": {
+			"keccak256": "0xab088ffd1cd1033f54c2486f151b5d02281a3b76724c8e6f48479c25a4f7809e",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://5ddaf9976b1838f7028cbedfaf7f6e1cf8c898e100221176ff1406ee8b599f23",
+				"dweb:/ipfs/QmX2FYLXYyo5Cn55ZX2CfngpscSh4mQhcMVzQdQsh2vqcG"
+			]
+		},
+		"remix_tests.sol": {
+			"keccak256": "0xe2783cdc204cba8c72494119339f1d90f9022b15d6c718c668b7f097d8e29787",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://bb6a22e64c7f16bcaab63b1c1a1b269d5be8a6d37bdd9dec1718477ab916b18e",
+				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
+			]
+		},
+		"tests/FanEngagementSystem_test.sol": {
+			"keccak256": "0x25e4ef54a2f68fd0e9615c34cfcdc23efc9f9e1773f515f1e8ce41a0a34d5e72",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://4681884a627387ad91351a6acc8541b65ad338e28247fc0d752aae57319d9269",
+				"dweb:/ipfs/QmdFjHCSLMqSFqVATdDhASQS3aXKjYJCqKyqfTreaoXzgf"
+			]
+		}
+	},
+	"version": 1
+}

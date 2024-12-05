@@ -13,12 +13,12 @@ contract FanToken is ERC20 {
         owner = _owner;
     }
 
-    function mint(address to, uint256 amount) external {
+    function mint(address to, uint256 amount) public {
         require(msg.sender == owner, "Only owner can mint");
         _mint(to, amount);
     }
 
-    function burn(address from, uint256 amount) external {
+    function burn(address from, uint256 amount) public {
         require(msg.sender == owner, "Only owner can burn");
         _burn(from, amount);
     }
@@ -49,7 +49,7 @@ contract FanBadge is ERC721 {
         nextTokenId = 1;
     }
 
-    function mint(address to) external {
+    function mint(address to) public {
         require(msg.sender == owner, "Only owner can mint");
         _safeMint(to, nextTokenId);
         nextTokenId++;
@@ -98,33 +98,33 @@ contract FanEngagementSystem is Ownable {
         uint256 amount,
         string memory activityType,
         string memory activityProof
-    ) external onlyOwner {
+    ) public onlyOwner {
         fanToken.mint(fan, amount);
         fanPoints[fan] += amount;
         emit ActivitySubmitted(fan, activityType, activityProof, amount);
     }
 
-    function transferTokens(address to, uint256 amount) external {
+    function transferTokens(address to, uint256 amount) public {
         require(fanToken.balanceOf(msg.sender) >= amount, "Insufficient balance");
         require(fanToken.transferFrom(msg.sender, to, amount), "Transfer failed");
         fanPoints[msg.sender] -= amount;
         fanPoints[to] += amount;
     }
 
-    function redeemTokens(uint256 amount, string memory rewardType) external {
+    function redeemTokens(uint256 amount, string memory rewardType) public {
         require(fanToken.balanceOf(msg.sender) >= amount, "Insufficient balance");
         fanToken.burn(msg.sender, amount);
         fanPoints[msg.sender] -= amount;
         fanRewards[msg.sender].push(Reward(rewardType, block.timestamp));
     }
 
-    function mintNFTBadge(address fan, string memory badgeName) external onlyOwner {
+    function mintNFTBadge(address fan, string memory badgeName) public onlyOwner {
         fanBadge.mint(fan);
         emit NFTBadgeMinted(fan, badgeName, nextTokenId);
         nextTokenId++;
     }
 
-    function submitProposal(string memory proposalDescription) external {
+    function submitProposal(string memory proposalDescription) public {
         require(fanToken.balanceOf(msg.sender) > 0, "Must hold tokens to submit proposal");
         Proposal storage newProposal = proposals[nextProposalId];
         newProposal.description = proposalDescription;
@@ -132,7 +132,7 @@ contract FanEngagementSystem is Ownable {
         nextProposalId++;
     }
 
-    function voteOnProposal(uint256 proposalId) external {
+    function voteOnProposal(uint256 proposalId) public {
         require(fanToken.balanceOf(msg.sender) > 0, "Must hold tokens to vote");
         require(!proposals[proposalId].hasVoted[msg.sender], "Already voted");
         proposals[proposalId].votes++;
@@ -148,7 +148,7 @@ contract FanEngagementSystem is Ownable {
         return "Standard";
     }
 
-    function getRewardHistory(address fan) external view returns (string[] memory) {
+    function getRewardHistory(address fan) public view returns (string[] memory) {
         Reward[] memory rewards = fanRewards[fan];
         string[] memory history = new string[](rewards.length);
         for (uint i = 0; i < rewards.length; i++) {

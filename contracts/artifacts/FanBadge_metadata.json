@@ -755,11 +755,11 @@
 			]
 		},
 		"contracts/FanEngagementSystem.sol": {
-			"keccak256": "0xcd815154cf289c34e4d766761600c6c66afd75cd7916d46f33bb498a9f45801d",
+			"keccak256": "0xcd5cfbf4f7fbbf0bce4e78387715144e821b0f7808140ff386fe73d075675e96",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://dc6289b99cfeee90d291d64c46de959e7f67da093c4c347069b2e7348e2ed4cb",
-				"dweb:/ipfs/QmY5ynNiC2caqnPMqR1H9AXaexYQM6DKw7njatDd9Swzg5"
+				"bzz-raw://d76e23e38bbd16e3699214e9d0fdd33dbcc07fdd08adcb52842e26c307f952a3",
+				"dweb:/ipfs/QmQ97RSKGfVpV6UPpUR71EAtRLjWfXX41zEDL3skUfqRQX"
 			]
 		}
 	},

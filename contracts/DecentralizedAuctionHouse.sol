@@ -22,7 +22,7 @@ contract DecentralizedAuctionHouse {
         nextAuctionId = 1;
     }
 
-    function createAuction(string memory itemName, uint256 reservePrice, uint256 auctionDuration) external {
+    function createAuction(string memory itemName, uint256 reservePrice, uint256 auctionDuration) public   {
         require(reservePrice > 0, "Reserve price must be greater than 0");
         require(auctionDuration > 0, "Auction duration must be greater than 0");
         auctions[nextAuctionId] = Auction({
@@ -38,7 +38,7 @@ contract DecentralizedAuctionHouse {
         nextAuctionId++;
     }
 
-    function placeBid(uint256 auctionId, uint256 bidAmount) external payable {
+    function placeBid(uint256 auctionId, uint256 bidAmount) public  payable {
         Auction storage auction = auctions[auctionId];
         require(auction.isActive, "Auction is not active");
         require(block.timestamp < auction.endTime, "Auction has ended");
@@ -50,7 +50,7 @@ contract DecentralizedAuctionHouse {
         bids[auctionId][msg.sender] = bidAmount;
     }
 
-    function withdrawBid(uint256 auctionId) external {
+    function withdrawBid(uint256 auctionId) public {
         Auction storage auction = auctions[auctionId];
         require(auction.isActive, "Auction is not active");
         require(block.timestamp <= auction.endTime, "Auction has ended");
@@ -65,7 +65,7 @@ contract DecentralizedAuctionHouse {
 
     }
 
-    function finalizeAuction(uint256 auctionId) external {
+    function finalizeAuction(uint256 auctionId) public {
         Auction storage auction = auctions[auctionId];
         require(auction.isActive, "Auction is not active");
         require(block.timestamp >= auction.endTime, "Auction has not ended");
@@ -78,7 +78,7 @@ contract DecentralizedAuctionHouse {
         require(success, "Failed to send Ether");
     }
 
-    function getAuctionDetails(uint256 auctionId) external view returns (
+    function getAuctionDetails(uint256 auctionId) public view returns (
         string memory itemName,
         uint256 reservePrice,
         uint256 endTime,

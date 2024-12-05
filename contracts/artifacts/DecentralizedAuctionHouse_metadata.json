@@ -218,11 +218,11 @@
 	},
 	"sources": {
 		"contracts/DecentralizedAuctionHouse.sol": {
-			"keccak256": "0x3fbc4a5fc001b969547fe5cee055336fb1f54440f9aefaa714c43b92b745faeb",
+			"keccak256": "0xc81131060b57561676e9524896856baaeb49e3d1a9689a4cc9400d999fdcb1d1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://998ab1c2d6a1f693c5285a24db1194b4babef48c37b1dac44fcd7ed8224c01c6",
-				"dweb:/ipfs/QmXB8ShNe8D9bD9BtVFVgD6iyijjpjHMG5GVxNANS515q2"
+				"bzz-raw://6eaa3b3b3c74e67028105f2cdf1efb4ee03f1c713db4685c3eaab118a920cbde",
+				"dweb:/ipfs/QmQpmC5qwz7VzqcWvYBWsYQKAzCMshUUqC8QpiDkvcRRJC"
 			]
 		}
 	},

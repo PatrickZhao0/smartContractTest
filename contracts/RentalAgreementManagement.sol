@@ -25,12 +25,12 @@ contract RentalAgreementManagement {
         nextAgreementId = 1;
     }
 
-    function createAgreement(address tenant, uint256 rentAmount, uint256 duration) external returns (uint256) {
+    function createAgreement(address tenant, uint256 rentAmount, uint256 duration) public returns (uint256) {
         require(tenant != address(0), "Invalid tenant address");
         require(rentAmount > 0, "Rent amount must be greater than 0");
         require(duration > 0, "Duration must be greater than 0");
 
-        uint256 agreementId = nextAgreementId++;
+        uint256 agreementId = nextAgreementId;
         
         agreements[agreementId] = RentalAgreement({
             id: nextAgreementId,
@@ -44,10 +44,11 @@ contract RentalAgreementManagement {
         });
 
         emit AgreementCreated(agreementId, msg.sender, tenant);
+        nextAgreementId ++;
         return agreementId;
     }
 
-    function payRent(uint256 agreementId) external payable {
+    function payRent(uint256 agreementId) public payable {
         require(agreements[agreementId].id != 0, "Agreement does not exist");
         RentalAgreement storage agreement = agreements[agreementId];
         require(agreement.tenant == msg.sender, "Only tenant can pay rent");
@@ -60,7 +61,7 @@ contract RentalAgreementManagement {
         emit RentPaid(agreementId, msg.sender, msg.value);
     }
 
-    function terminateAgreement(uint256 agreementId) external{
+    function terminateAgreement(uint256 agreementId) public{
         require(msg.sender == agreements[agreementId].landlord, "Only landlord can terminate the agreement");
         require(agreements[agreementId].id != 0, "Agreement does not exist");
         RentalAgreement storage agreement = agreements[agreementId];
@@ -70,7 +71,7 @@ contract RentalAgreementManagement {
         emit AgreementTerminated(agreementId);
     }
 
-    function getAgreementStatus(uint256 agreementId) external view returns (string memory) {
+    function getAgreementStatus(uint256 agreementId) public view returns (string memory) {
         RentalAgreement storage agreement = agreements[agreementId];
         if (!agreement.isActive) {
             return "Terminated";

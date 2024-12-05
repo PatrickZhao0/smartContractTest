@@ -1,0 +1,317 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "agreementId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "landlord",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "tenant",
+						"type": "address"
+					}
+				],
+				"name": "AgreementCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "agreementId",
+						"type": "uint256"
+					}
+				],
+				"name": "AgreementTerminated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "agreementId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "tenant",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "RentPaid",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "agreements",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "landlord",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tenant",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rentAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "duration",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isActive",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isPaid",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "beforeAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tenant",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rentAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "duration",
+						"type": "uint256"
+					}
+				],
+				"name": "createAgreement",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "agreementId",
+						"type": "uint256"
+					}
+				],
+				"name": "getAgreementStatus",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "agreementId",
+						"type": "uint256"
+					}
+				],
+				"name": "payRent",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "agreementId",
+						"type": "uint256"
+					}
+				],
+				"name": "terminateAgreement",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testCreateAgreement",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testGetAgreementStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testPayRent",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testTerminateAgreement",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"testCreateAgreement()": {
+					"notice": "#sender: account-0"
+				},
+				"testGetAgreementStatus()": {
+					"notice": "#sender: account-0"
+				},
+				"testPayRent()": {
+					"notice": "#sender: account-1 #value: 1000000000000000000"
+				},
+				"testTerminateAgreement()": {
+					"notice": "#sender: account-0"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/RentalAgreementManagement_test.sol": "RentalAgreementManagementTest"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/RentalAgreementManagement.sol": {
+			"keccak256": "0x58bfd6dd6aac606a9964a84c2ca25d5910042ad8c9fb0e110f4dcdae27586e0a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fe09f2d6a0fb21b1fc18f4a82470759c44957f8435de54ce5370a277d153f33a",
+				"dweb:/ipfs/QmUfhSvVLnLvq6NyW61NucvfCGH8zAiSYJXqzxaDbc6xjE"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0xf2560b5386574153057104d19a9e68a32ee912cf23c0c8df1fe9a0607f42d543",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a63166e036b040826baa513772451a79925daa304b38749100efb089ac07cdc2",
+				"dweb:/ipfs/QmUtMTxUFKU6a5oFXsEJnTPvb3QPb7GDDmSv5yZ1jFHDwR"
+			]
+		},
+		"remix_accounts.sol": {
+			"keccak256": "0xab088ffd1cd1033f54c2486f151b5d02281a3b76724c8e6f48479c25a4f7809e",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://5ddaf9976b1838f7028cbedfaf7f6e1cf8c898e100221176ff1406ee8b599f23",
+				"dweb:/ipfs/QmX2FYLXYyo5Cn55ZX2CfngpscSh4mQhcMVzQdQsh2vqcG"
+			]
+		},
+		"remix_tests.sol": {
+			"keccak256": "0xe2783cdc204cba8c72494119339f1d90f9022b15d6c718c668b7f097d8e29787",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://bb6a22e64c7f16bcaab63b1c1a1b269d5be8a6d37bdd9dec1718477ab916b18e",
+				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
+			]
+		},
+		"tests/RentalAgreementManagement_test.sol": {
+			"keccak256": "0xd51713b5953a02a7135de1cafbb7c20fcd5fb7d534758e49bf9a3fee2cfaade4",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://868f0d83a4b8b07a3adf61237faf837f9f15151207032aa484ea3127406abd37",
+				"dweb:/ipfs/QmWkj4uNJrwbXK2ZLBd8VkuMpPExMXY4Ptu4YyNXAPVFHX"
+			]
+		}
+	},
+	"version": 1
+}
